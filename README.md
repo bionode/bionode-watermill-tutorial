@@ -7,7 +7,7 @@
     * [join](#join)
     * [junction](#junction)
     * [fork](#fork)
-* [Useful links](useful-links)
+* [Useful links](#useful-links)
 
 ## Objective
 
