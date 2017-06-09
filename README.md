@@ -81,7 +81,7 @@ This task will create a new file (empty) inside a directory named
 You may also notice that a bunch of text was outputted to terminal and it 
 can be useful for debugging your pipelines.
 
-The above example is available [here](https://github.com/tiagofilipe12/bionode-watermill/tree/master/examples/pipelines/simple_tutorial/simple_task.js).
+The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_task.js).
 You can test the above example by running: `node simple_task.js`
 
 ## Using orchestrators
@@ -123,7 +123,7 @@ is responsible for the first task (`simpleTask`) that will create a new
  files will be inside a directory named "data/\<uid>/" (but in this case you 
  will have two directories with distinct uids).
 
-The above example is available [here](https://github.com/tiagofilipe12/bionode-watermill/tree/master/examples/pipelines/simple_tutorial/simple_join.js).
+The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_join.js).
 You can test the above example by running: `node simple_join.js`
 
 * ### Junction
@@ -181,7 +181,7 @@ Nevertheless, if you browse to `data` folder, you should have three folders
  to this file) and finally a third one in which you should have the file 
  generated and written in the third task (named `another_test_file.file`). 
 
-The above example is available [here](https://github.com/tiagofilipe12/bionode-watermill/tree/master/examples/pipelines/simple_tutorial/simple_junction.js).
+The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_junction.js).
 You can test the above example by running: `node simple_junction.js`
 
 * ### Fork
