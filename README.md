@@ -7,6 +7,8 @@ pipeline using bionode-watermill for the first time.
 
 ## First things first
 
+This tutorial assumes that you have installed `npm`, `git` and `node`.
+
 To setup and test the scripts within this tutorial follow these simple steps:
 
 * `git clone https://github.com/bionode/bionode-watermill-tutorial.git`
@@ -46,7 +48,7 @@ const simpleTask = task({
 )
 ```
 
-Or you can also do something like the following in ES6 syntax using arrow 
+Or you can also do something like the following in ES6 syntax, using arrow 
 functions:
 
 ```javascript
@@ -67,8 +69,11 @@ simpleTask()
 ```
 This task will create a new file (empty) inside a directory named 
 "data/\<uid>/".
+You may also notice that a bunch of text was outputted to terminal and it 
+can be useful for debugging your pipelines.
 
 The above example is available [here](https://github.com/tiagofilipe12/bionode-watermill/tree/master/examples/pipelines/simple_tutorial/simple_task.js).
+You can test the above example by running: `node simple_task.js`
 
 ## Using orchestrators
 
@@ -110,7 +115,7 @@ is responsible for the first task (`simpleTask`) that will create a new
  will have two directories with distinct uids).
 
 The above example is available [here](https://github.com/tiagofilipe12/bionode-watermill/tree/master/examples/pipelines/simple_tutorial/simple_join.js).
-
+You can test the above example by running: `node simple_join.js`
 
 * ### Junction
 * ### Fork
