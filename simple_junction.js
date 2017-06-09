@@ -4,7 +4,7 @@
 const {
   task,
   join,
-  fork
+  junction
 } = require('bionode-watermill')
 
 // this is a kiss example of how tasks work with shell
@@ -23,18 +23,19 @@ const writeToFile = task({
   }, ({ input }) => `echo "some string" >> ${input}`
 )
 
-const simpleTask2 = task({
+const writeAnotherFile = task({
   output:'*.file', // specifies the pattern of the expected input
   params: 'another_test_file.file', /* checks if output file matches the
   specified pattern*/
-  name: 'Creates the 2nd file'
-}, ({ params }) => `touch ${params}`
+  name: 'Yet another task'
+}, ({ params }) => `touch ${params} | echo "some new string" >> ${params}`
 )
 
 // this is a kiss example of how junction works
-const pipeline = join(
-  fork(simpleTask, simpleTask2)
-  //writeToFile
+const pipeline = junction(
+  join(simpleTask, writeToFile),  /* this "joint" tasks will be executed at the
+  same time as the task bellow*/
+  writeAnotherFile
 )
 
 //executes the pipeline itself

@@ -189,7 +189,93 @@ You can test the above example by running: `node simple_junction.js`
 * ### Fork
 
 While **junction** handles two or more tasks at the same time, **fork** 
-allows to 
+allows to pass the output of two or more different tasks to the next task. So
+ image you have a two different files generated in a given task and want to 
+ process them using the same task in the next step. In this case 
+ bionode-watermill uses **fork**, to split the pipeline in two distinct 
+ branches that after will be processed independently. 
+ 
+ If you have something like:
+ ```javascript 
+ join(
+   taskA,
+   fork(taskB, taskC),
+   taskD
+ )
+ ```
+ This will render something like this:  ```taskA -> taskB -> taskD'``` and 
+ ```taskA -> taskC -> taskD''```, with two distinct final outputs for the 
+ pipeline. This is a quite useful feature to benchmark programs or if you are
+  interested in running multiple programs that do the same type of analyses 
+  and compare the results of both analyses.
+  
+  Importantly, the same type of pipeline with **junction** instead of **fork**,
+   ```javascript 
+   join(
+     taskA,
+     junction(taskB, taskC),
+     taskD
+   )
+   ```
+   would render the following workflow: ```taskA -> taskB, taskC -> taskD```,
+    where taskD has only one final result.
+    
+ But enough talk, lets get to work!
+ 
+ For the fork tutorial, two function will be defined that create a file and 
+ write to it:
+ 
+ ```javascript
+const simpleTask1 = task({
+    output: '*.txt', // checks if output file matches the specified pattern
+    params: 'test_file.txt',  //defines parameters to be passed to the
+    // task function
+    name: 'task1: creating file 1' //defines the name of the task
+  }, ({ params }) => `touch ${params} | echo "this is a string from first file" >> ${params}`
+)
+
+const simpleTask2 = task({
+    output:'*.txt', // specifies the pattern of the expected input
+    params: 'another_test_file.txt', /* checks if output file matches the
+     specified pattern*/
+    name: 'task 2: creating file 2'
+  }, ({ params }) => `touch ${params} | echo "this is a string from second file" >> ${params}`
+)
+```
+
+Then, a function that adds text to these files to be executed after the fork:
+
+```javascript
+const appendFiles = task({
+    input: '*.txt', // specifies the pattern of the expected input
+    output: '*.txt', // checks if output file matches the specified patters
+    name: 'Write to files' //defines the name of the task
+  }, ({ input }) => `echo "after fork string" >> ${input}`
+)
+```
+
+And finally our pipeline execution:
+
+```javascript
+// this is a kiss example of how fork works
+const pipeline = join(
+  fork(simpleTask1, simpleTask2),
+  appendFiles
+)
+
+//executes the pipeline itself
+pipeline()
+```
+
+This should result in four output directories in our `data` folder. Notice 
+that contrarily to **junction**, where three tasks would render three output 
+directories, with **fork** the result of our pipeline are four output 
+directories, where the outputs from `simpleTask1` and `simpleTask2` where 
+both processed by task `appendFiles`.
+
+The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_fork.js).
+You can test the above example by running: `node simple_junction.js`
+ 
 
 ## Useful links
 
