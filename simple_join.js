@@ -4,7 +4,7 @@
 const {
   task,
   join
-} = require('../../..')
+} = require('bionode-watermill')
 
 // this is a kiss example of how tasks work with shell
 const simpleTask = task({

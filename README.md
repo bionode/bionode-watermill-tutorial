@@ -5,6 +5,14 @@
 This tutorial is intended for those that attempt to assemble a bioinformatics 
 pipeline using bionode-watermill for the first time.
 
+## First things first
+
+To setup and test the scripts within this tutorial follow these simple steps:
+
+* `git clone https://github.com/bionode/bionode-watermill-tutorial.git`
+* `cd bionode-watermill-tutorial`
+* `npm install bionode-watermill`
+
 ## Defining a task
 
 Watermill is a tool that lets you orchestrate tasks. So, lets first 
@@ -13,14 +21,33 @@ understand how to define a task.
 To define a task we first need to require bionode-watermill:
 
 ```javascript
-const watermill = require('../../..') /* don't forget to edit this require if
+const watermill = require('bionode-watermill') /* don't forget to edit this 
+require if
  you run it outside bionode-watermill examples/pipelines/simple_tutorial 
  folder */ 
-const task = watermill.task  /* have to specify task since bionode-watermill 
-has more operators*/
+const task = watermill.task  /* have to specify task*/
 ```
 
 After, we can use task variable to define a task:
+
+Using starndard javascript style:
+
+```javascript
+// this is a kiss example of how tasks work with shell
+const simpleTask = task({
+  output: '*.txt', // checks if output file matches the specified pattern
+  params: 'test_file.txt',  //defines parameters to be passed to the
+    // task function
+  name: 'This is the task name' //defines the name of the task
+}, function(resolvedProps) {
+    const params = resolvedProps.params
+    return 'touch ' + params
+  }
+)
+```
+
+Or you can also do something like the following in ES6 syntax using arrow 
+functions:
 
 ```javascript
 // this is a kiss example of how tasks work with shell
@@ -35,7 +62,7 @@ const simpleTask = task({
 
 Then after defining the task, it may be executed like this:
 ```javascript
-// runs the task
+// runs the task and returns a promise, and can also return a callback
 simpleTask()
 ```
 This task will create a new file (empty) inside a directory named 
