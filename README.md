@@ -1,13 +1,13 @@
 # bionode-watermill for dummies!
 
-* [Objective](#Objective)
-* [First things first](#First-things-first)
-* [Dening a task](#Defining-a-task)
-* [Using orchestrators](#Using-orchestrators)
+* [Objective](#objective)
+* [First things first](#first-things-first)
+* [Dening a task](#defining-a-task)
+* [Using orchestrators](#using-orchestrators)
     * [join](#join)
     * [junction](#junction)
     * [fork](#fork)
-* [Useful links](Useful-links:)
+* [Useful links](useful-links)
 
 ## Objective
 
@@ -186,7 +186,7 @@ You can test the above example by running: `node simple_junction.js`
 
 * ### Fork
 
-## Useful links:
+## Useful links
 
 * [How to require bionode-watermill inside my project?](https://github.com/bionode/GSoC17/blob/master/notes/running_watermill.md)
 
