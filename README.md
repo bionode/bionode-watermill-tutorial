@@ -86,6 +86,8 @@ You can test the above example by running: `node simple_task.js`
 
 ## Using orchestrators
 
+[What are orchestrators?](https://github.com/bionode/bionode-watermill#what-are-orchestrators)
+
 * ### Join
 
 **Join** is an operator that lets you run a sequence of tasks in a given order. 
@@ -185,6 +187,9 @@ The above example is available [here](https://github.com/bionode/bionode-watermi
 You can test the above example by running: `node simple_junction.js`
 
 * ### Fork
+
+While **junction** handles two or more tasks at the same time, **fork** 
+allows to 
 
 ## Useful links
 
