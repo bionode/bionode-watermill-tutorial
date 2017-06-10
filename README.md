@@ -189,9 +189,9 @@ You can test the above example by running: `node simple_junction.js`
 * ### Fork
 
 While **junction** handles two or more tasks at the same time, **fork** 
-allows to pass the output of two or more different tasks to the next task. So
- image you have a two different files generated in a given task and want to 
- process them using the same task in the next step. In this case 
+allows to pass the output of two or more different tasks to the next task. 
+Imagine you have two different files being generated in two different tasks 
+ and want to  process them using the same task in the next step. In this case 
  bionode-watermill uses **fork**, to split the pipeline in two distinct 
  branches that after will be processed independently. 
  
@@ -203,7 +203,7 @@ allows to pass the output of two or more different tasks to the next task. So
    taskD
  )
  ```
- This will render something like this:  ```taskA -> taskB -> taskD'``` and 
+ This will result in something like this:  ```taskA -> taskB -> taskD'``` and 
  ```taskA -> taskC -> taskD''```, with two distinct final outputs for the 
  pipeline. This is a quite useful feature to benchmark programs or if you are
   interested in running multiple programs that do the same type of analyses 
@@ -217,13 +217,13 @@ allows to pass the output of two or more different tasks to the next task. So
      taskD
    )
    ```
-   would render the following workflow: ```taskA -> taskB, taskC -> taskD```,
+   would result in the following workflow: ```taskA -> taskB, taskC -> taskD```,
     where taskD has only one final result.
     
  But enough talk, lets get to work!
  
- For the fork tutorial, two function will be defined that create a file and 
- write to it:
+ For the fork tutorial, two functions will be defined. These functions 
+ create a file and write to it:
  
  ```javascript
 const simpleTask1 = task({
@@ -243,7 +243,8 @@ const simpleTask2 = task({
 )
 ```
 
-Then, a function that adds text to these files to be executed after the fork:
+Then, a task to be performed after the fork, which will add the same text to 
+these files:
 
 ```javascript
 const appendFiles = task({
