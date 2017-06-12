@@ -287,3 +287,6 @@ You can test the above example by running: `node simple_junction.js`
 * [How to require bionode-watermill inside my project?](https://github.com/bionode/GSoC17/blob/master/notes/running_watermill.md)
 
 * [Tutorial using ES6 syntax](https://github.com/bionode/bionode-watermill-tutorial/blob/master/README.md)
+
+* [Is this not challenging enough? Then try our other example pipelines](https://github.com/bionode/bionode-watermill/tree/master/examples/pipelines)
+    * [A pipeline to perform mapping with bowtie and bwa in parallel](https://github.com/bionode/bionode-watermill/tree/master/examples/pipelines/two-mappers)
