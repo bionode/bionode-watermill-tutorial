@@ -2,7 +2,7 @@
 
 * [Objective](#objective)
 * [First things first](#first-things-first)
-* [Dening a task](#defining-a-task)
+* [Defining a task](#defining-a-task)
 * [Using orchestrators](#using-orchestrators)
     * [join](#join)
     * [junction](#junction)
