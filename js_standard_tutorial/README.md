@@ -29,19 +29,16 @@ To setup and test the scripts within this tutorial follow these simple steps:
 Watermill is a tool that lets you orchestrate tasks. So, lets first 
 understand how to define a **task**. 
  
-To define a **task** we first need to require bionode-watermill:
+To define a **task** we need to require bionode-watermill:
 
 ```javascript
 const watermill = require('bionode-watermill') /* don't forget to edit this 
-require if
- you run it outside bionode-watermill examples/pipelines/simple_tutorial 
- folder */ 
-const task = watermill.task  /* have to specify task*/
+require if  you run it outside bionode-watermill  
+examples/pipelines/simple_tutorial folder */ 
+const task = watermill.task  /* have to specify task */
 ```
 
-After, we can use task variable to define a task:
-
-Using standard javascript style:
+After, we can use the task variable to define a given task:
 
 ```javascript
 // this is a kiss example of how tasks work with shell
@@ -64,11 +61,11 @@ simpleTask()
 ```
 This task will create a new file (empty) inside a directory named 
 "data/\<uid>/".
-You may also notice that a bunch of text was outputted to terminal and it 
+You may also notice that a 'bunch' of text was outputted to terminal and it 
 can be useful for debugging your pipelines.
 
 The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_task.js).
-You can test the above example by running: `node simple_task.js`
+You can test it by running: `node simple_task.js`
 
 ## Using orchestrators
 
@@ -76,7 +73,7 @@ You can test the above example by running: `node simple_task.js`
 
 * ### Join
 
-**Join** is an operator that lets you run a sequence of tasks in a given order. 
+**Join** is an operator that lets you run a number of tasks in a given order. 
 For instance if we are interested in creating a file and writing to it 
 in two different instances. But let's first define a new task so we can 
 perform it after the task that we called `simpleTask`:
@@ -121,7 +118,7 @@ You can test the above example by running: `node simple_join.js`
 
 Unlike **join**, **junction** allows to run multiple tasks in parallel. 
 
-However we will have to create a new task since if we simply replace in the 
+However, we will have to create a new task since if we simply replace in the 
 previous pipeline **join** with **junction**, we will end up with a file 
 named `test_file.txt` with nothing written inside, because if you create the 
 file and write to it at the same time, write won't work, but the file will be
@@ -132,7 +129,7 @@ file and write to it at the same time, write won't work, but the file will be
 const pipeline = junction(simpleTask, writeToFile)
 ```
 
-So, in we will define a new simple task:
+So, we will define a new simple task:
 
 ```javascript
 const writeAnotherFile = task({
