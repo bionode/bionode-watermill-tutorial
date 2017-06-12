@@ -281,7 +281,7 @@ directories, where the outputs from `simpleTask1` and `simpleTask2` where
 both processed by task `appendFiles`.
 
 The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_fork.js).
-You can test the above example by running: `node simple_junction.js`
+You can test the above example by running: `node simple_fork.js`
  
 
 ## Useful links
