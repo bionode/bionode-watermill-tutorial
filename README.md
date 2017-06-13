@@ -16,7 +16,7 @@ pipeline using bionode-watermill for the first time.
 
 ## First things first
 
-This tutorial assumes that you have installed `npm`, `git` and `node`.
+This tutorial assumes that you have installed `npm`, `git` and `node`. Node.js required for the full tutorial should be version 7 or higher.
 
 To setup and test the scripts within this tutorial follow these simple steps:
 
