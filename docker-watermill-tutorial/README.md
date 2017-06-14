@@ -17,7 +17,7 @@ Within play-with-docker webpage click on `create session`. Then, another page
 1) `docker pull tiagofilipe12/bionode-watermill-tutorial`
 2) `docker run -it tiagofilipe12/bionode-watermill-tutorial zsh`
 
-After, follow the instructions [below](#Running-an-example).
+After, follow the instructions [below](#running-an-example).
  
 ## Build this docker on your local machine
 
