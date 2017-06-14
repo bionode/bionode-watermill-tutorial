@@ -6,7 +6,7 @@ This is a dockerfile for using with bionode-watermill-tutorial. Here you will
 
 ## Try this docker in play-with-docker
 
-Click here :arrow_right: 
+**Click here -->** 
 [![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://labs.play-with-docker.com/)
 
 Within play-with-docker webpage click on `create session`. Then, another page
