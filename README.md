@@ -32,11 +32,9 @@ understand how to define a **task**.
 To define a **task** we first need to require bionode-watermill:
 
 ```javascript
-const watermill = require('bionode-watermill') /* don't forget to edit this 
-require if
- you run it outside bionode-watermill examples/pipelines/simple_tutorial 
- folder */ 
-const task = watermill.task  /* have to specify task*/
+const watermill = require('bionode-watermill') 
+const task = watermill.task  /* have to specify task because watermill object
+ has more variables*/
 ```
 
 After, we can use task variable to define a given task:
@@ -115,6 +113,18 @@ created in task `simpleTask`. However, to do so, we need the file to be
 created first and only then write something to it.
 In order to achieve this we use `join`:
 
+Before applying the pipeline first we need to require **join** 
+
+```javascript
+// === WATERMILL ===
+const {
+  task,
+  join
+} = require('bionode-watermill')
+```
+
+And then,
+
 ```javascript
 // this is a kiss example of how join works
 const pipeline = join(simpleTask, writeToFile)
@@ -144,6 +154,16 @@ named `test_file.txt` with nothing written inside, because if you create the
 file and write to it at the same time, write won't work, but the file will be
  created. 
  
+ But first, don't forget to:
+ ```javascript
+ // === WATERMILL ===
+ const {
+   task,
+   join,
+   junction
+ } = require('bionode-watermill')
+ ```
+ And only then:
  ```javascript
  // this will not produce the file with text in it!
 const pipeline = junction(simpleTask, writeToFile)
@@ -177,7 +197,7 @@ pipeline()
 
 This new pipeline consists on creating two files and writing text to them. Note 
 that in `writeAnotherFile` task in this task pipe is used 
- in shell ("|") to along with the shell commands `touch` and `echo`. That is a 
+ in shell ("|") along with the shell commands `touch` and `echo`. That is a 
  feature that bionode-watermill also supports. Of course, these are simple 
  tasks that can be performed only with shell commands (but they are merely 
  illustrative). Instead, as mentioned above you can use javascript **callback** 
@@ -227,6 +247,17 @@ Imagine you have two different files being generated in two different tasks
     where taskD has only one final result.
     
  But enough talk, lets get to work!
+ 
+  First:
+  
+  ```javascript
+  // === WATERMILL ===
+  const {
+    task,
+    join,
+    fork
+  } = require('bionode-watermill')
+  ```
  
  For the fork tutorial, two functions will be defined. These functions 
  create a file and write to it:
