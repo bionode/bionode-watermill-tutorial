@@ -89,7 +89,7 @@ can be useful for debugging your pipelines.
 The above example is available [here](https://github.com/bionode/bionode-watermill-tutorial/blob/master/simple_task.js).
 You can test it by running: `node simple_task.js`
 
-###Input/output
+### Input/output
 
 Although already discussed [elsewhere](https://github.com/bionode/bionode-watermill/blob/master/docs/Task.md#input-and-output)
 within bionode-watermill documentation, in this tutorial I intend to explain 
