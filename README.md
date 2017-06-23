@@ -119,7 +119,7 @@ for the first hit that matches this pattern. So, pay attention when specifying
   the first one, you can easily pass the input as follows:
   
 ```javascript
-{ input: '**/*6.sra' }
+{ input: '*6.sra' }
 ```
 
 or of course hardcode it. 
