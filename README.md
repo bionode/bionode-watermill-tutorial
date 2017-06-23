@@ -3,6 +3,7 @@
 * [Objective](#objective)
 * [First things first](#first-things-first)
 * [Defining a task](#defining-a-task)
+    * [Input/output](#input_output)
 * [Using orchestrators](#using-orchestrators)
     * [join](#join)
     * [junction](#junction)
