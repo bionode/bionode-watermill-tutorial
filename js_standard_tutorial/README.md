@@ -72,7 +72,7 @@ You can test it by running: `node simple_task.js`
 Although already discussed [elsewhere](https://github.com/bionode/bionode-watermill/blob/master/docs/Task.md#input-and-output)
 within bionode-watermill documentation, in this tutorial I intend to explain 
 how input/output are managed by bionode-watermill. 
-First, you can either hardcore input to something like:
+First, you can either hardcode input to something like:
 
 ```javascript
 { input: 'ERR1229296.sra' }
